@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冒险岛幻影技能 - 幻影职业加点解析与技能搭配指南</title>
+<meta name="description" content="冒险岛幻影技能全面解析：幻影职业偷取技能机制、1至5转核心技能加点顺序、BOSS战与刷图技能搭配、超技能与五转矩阵选择，以及新手常见问题解答。">
+<meta name="keywords" content="冒险岛幻影技能,幻影加点,幻影偷技能,幻影五转,幻影超技能,冒险岛幻影职业">
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+<style>
+  :root{
+    --bg:#0d1020;
+    --bg-soft:#151a33;
+    --panel:#1b2140;
+    --panel-2:#222a52;
+    --line:#2f3968;
+    --text:#e8ebf7;
+    --text-dim:#a4acd0;
+    --gold:#f2c14e;
+    --violet:#8b6cf0;
+    --violet-soft:#b7a4ff;
+    --cyan:#4fd1c5;
+    --radius:14px;
+    --shadow:0 10px 30px rgba(0,0,0,.35);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Helvetica Neue",Arial,sans-serif;
+    line-height:1.75;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+
+  /* 顶部导航 */
+  .site-header{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(13,16,32,.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .header-inner{
+    max-width:1180px;
+    margin:0 auto;
+    padding:12px 20px;
+    display:flex;
+    align-items:center;
+    gap:24px;
+    flex-wrap:wrap;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-weight:700;
+    font-size:19px;
+    letter-spacing:.5px;
+  }
+  .brand-mark{
+    width:34px;height:34px;
+    border-radius:10px;
+    background:linear-gradient(135deg,var(--violet),var(--cyan));
+    display:flex;align-items:center;justify-content:center;
+    font-size:17px;color:#0d1020;font-weight:900;
+    box-shadow:0 0 18px rgba(139,108,240,.5);
+  }
+  .brand span small{
+    display:block;
+    font-size:11px;
+    color:var(--text-dim);
+    font-weight:400;
+    letter-spacing:1px;
+  }
+  .site-nav{
+    display:flex;
+    gap:6px;
+    flex-wrap:wrap;
+    margin-left:auto;
+  }
+  .site-nav a{
+    padding:7px 13px;
+    border-radius:9px;
+    font-size:14px;
+    color:var(--text-dim);
+    transition:.2s;
+    border:1px solid transparent;
+  }
+  .site-nav a:hover{
+    color:var(--text);
+    background:var(--panel);
+    border-color:var(--line);
+  }
+
+  /* 布局容器 */
+  .wrap{
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 20px;
+  }
+  section{padding:52px 0;}
+  .section-head{
+    margin-bottom:26px;
+  }
+  .section-head h2{
+    font-size:24px;
+    letter-spacing:.5px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .section-head h2::before{
+    content:"";
+    width:5px;height:22px;
+    border-radius:3px;
+    background:linear-gradient(180deg,var(--violet),var(--cyan));
+  }
+  .section-head p{
+    color:var(--text-dim);
+    font-size:14.5px;
+    margin-top:8px;
+    max-width:820px;
+  }
+
+  /* 首屏 */
+  .hero{
+    position:relative;
+    overflow:hidden;
+    padding:64px 0 56px;
+    background:
+      radial-gradient(900px 420px at 12% -10%, rgba(139,108,240,.28), transparent 60%),
+      radial-gradient(700px 380px at 92% 8%, rgba(79,209,197,.18), transparent 62%),
+      linear-gradient(180deg,#10142a,#0d1020);
+    border-bottom:1px solid var(--line);
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.35fr 1fr;
+    gap:38px;
+    align-items:center;
+  }
+  .hero-tag{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-size:12.5px;
+    letter-spacing:1.5px;
+    color:var(--violet-soft);
+    border:1px solid rgba(139,108,240,.45);
+    background:rgba(139,108,240,.12);
+    padding:5px 12px;
+    border-radius:999px;
+    margin-bottom:18px;
+  }
+  .hero h1{
+    font-size:38px;
+    line-height:1.3;
+    letter-spacing:.5px;
+    margin-bottom:16px;
+  }
+  .hero h1 em{
+    font-style:normal;
+    background:linear-gradient(90deg,var(--gold),var(--violet-soft));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+  .hero p.lead{
+    color:var(--text-dim);
+    font-size:15.5px;
+    max-width:600px;
+    margin-bottom:26px;
+  }
+  .hero-actions{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+  }
+  .btn{
+    display:inline-block;
+    padding:11px 22px;
+    border-radius:11px;
+    font-size:14.5px;
+    font-weight:600;
+    transition:.2s;
+    border:1px solid transparent;
+    cursor:pointer;
+  }
+  .btn-primary{
+    background:linear-gradient(135deg,var(--violet),#6a4de0);
+    color:#fff;
+    box-shadow:0 8px 22px rgba(139,108,240,.35);
+  }
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(139,108,240,.5);}
+  .btn-ghost{
+    border-color:var(--line);
+    color:var(--text-dim);
+    background:rgba(255,255,255,.02);
+  }
+  .btn-ghost:hover{color:var(--text);border-color:var(--violet);}
+
+  .hero-card{
+    background:linear-gradient(160deg,var(--panel),var(--bg-soft));
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:22px;
+    box-shadow:var(--shadow);
+  }
+  .hero-card h3{
+    font-size:15px;
+    color:var(--gold);
+    letter-spacing:1px;
+    margin-bottom:14px;
+  }
+  .hero-card ul{list-style:none;}
+  .hero-card li{
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
+    font-size:14px;
+    padding:9px 0;
+    border-bottom:1px dashed rgba(47,57,104,.8);
+    color:var(--text-dim);
+  }
+  .hero-card li:last-child{border-bottom:none;}
+  .hero-card li b{color:var(--text);font-weight:600;}
+
+  /* 通用卡片网格 */
+  .grid{display:grid;gap:18px;}
+  .grid-3{grid-template-columns:repeat(3,1fr);}
+  .grid-2{grid-template-columns:repeat(2,1fr);}
+  .card{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:22px;
+    transition:.22s;
+  }
+  .card:hover{
+    transform:translateY(-3px);
+    border-color:rgba(139,108,240,.6);
+    box-shadow:0 14px 30px rgba(0,0,0,.35);
+  }
+  .card h3{
+    font-size:17px;
+    margin-bottom:10px;
+    display:flex;
+    align-items:center;
+    gap:9px;
+  }
+  .card h3 .dot{
+    width:9px;height:9px;border-radius:50%;
+    background:var(--cyan);
+    flex:none;
+    box-shadow:0 0 10px rgba(79,209,197,.8);
+  }
+  .card p{font-size:14.5px;color:var(--text-dim);}
+  .card ul{margin-top:10px;padding-left:18px;font-size:14.5px;color:var(--text-dim);}
+  .card ul li{margin-bottom:6px;}
+  .card ul li::marker{color:var(--violet-soft);}
+
+  /* 技能表 */
+  .table-wrap{
+    overflow-x:auto;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    background:var(--panel);
+  }
+  table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:640px;
+    font-size:14.5px;
+  }
+  thead th{
+    background:var(--panel-2);
+    text-align:left;
+    padding:13px 16px;
+    font-size:13.5px;
+    letter-spacing:.5px;
+    color:var(--violet-soft);
+    white-space:nowrap;
+  }
+  tbody td{
+    padding:13px 16px;
+    border-top:1px solid var(--line);
+    color:var(--text-dim);
+    vertical-align:top;
+  }
+  tbody td:first-child{color:var(--text);font-weight:600;white-space:nowrap;}
+  tbody tr:hover td{background:rgba(139,108,240,.06);}
+  .pill{
+    display:inline-block;
+    font-size:12px;
+    padding:2px 9px;
+    border-radius:999px;
+    border:1px solid var(--line);
+    color:var(--violet-soft);
+    background:rgba(139,108,240,.1);
+    margin-right:6px;
+  }
+
+  /* 加点顺序 */
+  .steps{
+    display:grid;
+    gap:14px;
+    counter-reset:step;
+  }
+  .step{
+    display:flex;
+    gap:16px;
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:18px 20px;
+  }
+  .step-num{
+    flex:none;
+    width:38px;height:38px;
+    border-radius:11px;
+    display:flex;align-items:center;justify-content:center;
+    font-weight:800;
+    color:#0d1020;
+    background:linear-gradient(135deg,var(--gold),#e0a92e);
+    font-size:16px;
+  }
+  .step-body h3{font-size:16px;margin-bottom:6px;}
+  .step-body p{font-size:14.5px;color:var(--text-dim);}
+
+  /* 侧栏 + 正文双栏 */
+  .split{
+    display:grid;
+    grid-template-columns:1fr 320px;
+    gap:30px;
+    align-items:start;
+  }
+  .aside-box{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:20px;
+    margin-bottom:18px;
+  }
+  .aside-box h3{
+    font-size:15px;
+    color:var(--gold);
+    margin-bottom:12px;
+    letter-spacing:.5px;
+  }
+  .aside-box ol,.aside-box ul{
+    padding-left:18px;
+    font-size:14px;
+    color:var(--text-dim);
+  }
+  .aside-box li{margin-bottom:8px;}
+  .aside-box li::marker{color:var(--violet-soft);}
+
+  /* 常见问题 */
+  .faq-item{
+    border:1px solid var(--line);
+    border-radius:12px;
+    background:var(--panel);
+    margin-bottom:12px;
+    overflow:hidden;
+  }
+  .faq-item summary{
+    cursor:pointer;
+    padding:16px 20px;
+    font-size:15.5px;
+    font-weight:600;
+    list-style:none;
+    display:flex;
+    justify-content:space-between;
+    gap:14px;
+    align-items:center;
+  }
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary::after{
+    content:"+";
+    color:var(--violet-soft);
+    font-size:19px;
+    font-weight:400;
+    flex:none;
+  }
+  .faq-item[open] summary::after{content:"–";}
+  .faq-item[open] summary{color:var(--violet-soft);}
+  .faq-item .faq-body{
+    padding:0 20px 18px;
+    font-size:14.5px;
+    color:var(--text-dim);
+  }
+
+  /* 页脚 */
+  .site-footer{
+    border-top:1px solid var(--line);
+    background:#0a0d1c;
+    padding:40px 0 26px;
+    margin-top:20px;
+  }
+  .footer-grid{
+    display:grid;
+    grid-template-columns:1.6fr 1fr 1fr;
+    gap:28px;
+  }
+  .footer-grid h4{
+    font-size:14.5px;
+    color:var(--text);
+    margin-bottom:12px;
+    letter-spacing:.5px;
+  }
+  .footer-grid p,.footer-grid li{
+    font-size:13.5px;
+    color:var(--text-dim);
+  }
+  .footer-grid ul{list-style:none;}
+  .footer-grid li{margin-bottom:7px;}
+  .footer-grid a:hover{color:var(--violet-soft);}
+  .copyright{
+    margin-top:28px;
+    padding-top:18px;
+    border-top:1px solid var(--line);
+    font-size:13px;
+    color:#6f78a0;
+    text-align:center;
+  }
+
+  /* 响应式 */
+  @media (max-width:980px){
+    .hero-grid{grid-template-columns:1fr;}
+    .split{grid-template-columns:1fr;}
+    .grid-3{grid-template-columns:repeat(2,1fr);}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:680px){
+    body{font-size:15px;}
+    .hero{padding:44px 0 40px;}
+    .hero h1{font-size:27px;}
+    section{padding:38px 0;}
+    .section-head h2{font-size:20px;}
+    .grid-3,.grid-2{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr;}
+    .site-nav{margin-left:0;width:100%;}
+    .header-inner{gap:14px;}
+    .step{flex-direction:column;gap:10px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">
+      <div class="brand-mark">幻</div>
+      <span>幻影技能资料站
+        <small>MAPLESTORY PHANTOM GUIDE</small>
+      </span>
+    </div>
+    <nav class="site-nav">
+      <a href="#intro">职业概览</a>
+      <a href="#steal">偷取机制</a>
+      <a href="#skills">技能解析</a>
+      <a href="#order">加点顺序</a>
+      <a href="#build">搭配方案</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- 首屏 -->
+  <section class="hero" id="intro">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="hero-tag">冒险岛 · 盗贼系 · 英雄职业</span>
+        <h1>冒险岛<em>幻影技能</em>全解析：偷取、加点与实战搭配</h1>
+        <p class="lead">
+          幻影是冒险岛中以“偷取技能”为核心机制的英雄职业。他既能使用本职业技能，又能复制其他冒险家职业的部分技能，
+          因此技能栏的取舍远比一般职业复杂。本页围绕幻影的技能体系、技能偷取选择、各转职加点顺序以及 BOSS 与刷图两套思路，
+          给出一份可以对照使用的整理说明。
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#skills">查看技能解析</a>
+          <a class="btn btn-ghost" href="#order">跳转加点顺序</a>
+        </div>
+      </div>
+
+      <aside class="hero-card">
+        <h3>幻影职业要点速览</h3>
+        <ul>
+          <li><span>职业分支</span><b>盗贼 → 侠盗 → 幻影</b></li>
+          <li><span>主武器</span><b>短刀（匕首）</b></li>
+          <li><span>副武器</span><b>卡牌 / 徽章</b></li>
+          <li><span>核心机制</span><b>技能偷取</b></li>
+          <li><span>主要属性</span><b>幸运（LUK）</b></li>
+          <li><span>定位</span><b>高机动输出 / 辅助</b></li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 职业概览 -->
+  <section class="wrap">
+    <div class="section-head">
+      <h2>幻影是一个什么样的职业</h2>
+      <p>在讨论具体技能之前，先理解幻影的定位，能帮助判断哪些技能值得投入技能点、哪些只做过渡。</p>
+    </div>
+    <div class="grid grid-3">
+      <article class="card">
+        <h3><span class="dot"></span>以偷取为特色</h3>
+        <p>幻影可以复制冒险家职业体系中的部分技能，这让同一个职业在不同玩家手里会呈现完全不同的技能组合。偷取技能的选择，往往比本职业加点更能影响实际表现。</p>
+      </article>
+      <article class="card">
+        <h3><span class="dot"></span>灵活的战斗节奏</h3>
+        <p>拥有位移、隐身与短时间爆发手段，可以在移动中持续输出。对操作节奏有一定要求，但熟练后战斗体验相当流畅。</p>
+      </article>
+      <article class="card">
+        <h3><span class="dot"></span>兼顾输出与辅助</h3>
+        <p>除了自身的伤害技能，幻影还能通过偷取获得团队增益类技能，因此在组队环境中也具备一定价值。</p>
+      </article>
+      <article class="card">
+        <h3><span class="dot"></span>技能栏需要规划</h3>
+        <p>可携带的技能数量有限，如何在输出、位移、增益之间取舍，是玩好幻影的关键功课。</p>
+      </article>
+      <article class="card">
+        <h3><span class="dot"></span>成长曲线较为平滑</h3>
+        <p>前期依靠基础技能即可顺利推进，中后期随着偷取技能与五转技能补齐，输出手段会明显丰富。</p>
+      </article>
+      <article class="card">
+        <h3><span class="dot"></span>装备方向明确</h3>
+        <p>以幸运为主属性、短刀为主武器，配装思路与其他盗贼系职业接近，便于参考同类职业的装备选择。</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- 偷取机制 -->
+  <section class="wrap" id="steal">
+    <div class="section-head">
+      <h2>技能偷取机制怎么理解</h2>
+      <p>偷取是幻影区别于其他职业的根本设计，理解它的规则，才能避免把有限的技能槽浪费掉。</p>
+    </div>
+    <div class="grid grid-2">
+      <article class="card">
+        <h3><span class="dot"></span>可偷取的范围</h3>
+        <p>幻影能够复制冒险家职业体系中的部分技能，通常每个职业分支可选的技能数量有限，且并非所有技能都在可偷取列表内。具体可用列表会随游戏版本调整，建议以当前版本的技能界面显示为准。</p>
+      </article>
+      <article class="card">
+        <h3><span class="dot"></span>技能槽与替换</h3>
+        <p>可同时装备的偷取技能数量是有限的，替换新技能会覆盖原有选择。因此在决定偷取前，先想清楚当前是刷图为主还是 BOSS 为主。</p>
+      </article>
+      <article class="card">
+        <h3><span class="dot"></span>技能等级的处理</h3>
+        <p>偷取到的技能通常以固定等级生效，不随本职业技能点分配变化。这意味着偷取技能更多是“补充手段”，而不是替代本职业核心输出。</p>
+      </article>
+      <article class="card">
+        <h3><span class="dot"></span>选择的基本原则</h3>
+        <ul>
+          <li>优先补充本职业缺失的能力，例如大范围清怪或团队增益。</li>
+          <li>避免偷取与自身技能功能高度重叠的技能。</li>
+          <li>根据当前主要玩法（练级 / 打王 / 组队）动态调整。</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- 技能解析 -->
+  <section class="wrap" id="skills">
+    <div class="section-head">
+      <h2>幻影各阶段技能解析</h2>
+      <p>下表按转职阶段梳理幻影的技能类型与作用方向，帮助建立整体认知。技能名称与效果以游戏内实际显示为准。</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>阶段</th>
+            <th>技能类型</th>
+            <th>主要作用</th>
+            <th>加点建议</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>一转</td>
+            <td>基础攻击、位移</td>
+            <td>提供前期练级手段与基础移动能力，是后续技能的前置。</td>
+            <td>优先点满被动与前置技能，主动攻击技能按需分配。</td>
+          </tr>
+          <tr>
+            <td>二转</td>
+            <td>强化攻击、增益</td>
+            <td>提升清怪效率，开始出现可长期使用的增益类技能。</td>
+            <td>增益与被动优先，攻击技能保证可用即可。</td>
+          </tr>
+          <tr>
+            <td>三转</td>
+            <td>范围攻击、辅助</td>
+            <td>获得更稳定的范围清怪手段，输出结构逐渐成型。</td>
+            <td>主攻技能点满，其余按前置需求补点。</td>
+          </tr>
+          <tr>
+            <td>四转</td>
+            <td>核心输出、爆发</td>
+            <td>本职业主要伤害来源集中在此阶段，是加点的重点。</td>
+            <td>核心输出与关键被动优先点满。</td>
+          </tr>
+          <tr>
+            <td>超技能</td>
+            <td>被动强化、主动强化</td>
+            <td>对已有技能进行定向强化，或提供短时强力效果。</td>
+            <td>围绕常用主攻技能选择强化方向。</td>
+          </tr>
+          <tr>
+            <td>五转</td>
+            <td>矩阵技能、核心</td>
+            <td>通过矩阵系统获得额外强力技能与强化节点。</td>
+            <td>优先强化使用频率最高的输出技能。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 加点顺序 -->
+  <section class="wrap" id="order">
+    <div class="section-head">
+      <h2>推荐的加点顺序思路</h2>
+      <p>加点没有唯一正确答案，但遵循“先保证能打、再追求打得好”的顺序，可以少走弯路。</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h3>先补前置与被动</h3>
+          <p>每个阶段都有若干被动技能是后续技能的前置条件，先把这些点满，避免出现想点主攻技能却点数不够分配的情况。</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h3>再确认主力输出技能</h3>
+          <p>选定当前阶段使用频率最高的攻击技能，优先把它点满。判断标准很简单：练级时你按得最多的那个技能，就是主力。</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h3>补齐增益与生存类技能</h3>
+          <p>增益技能直接影响输出上限，生存类技能影响容错率。两者都不应长期停留在低等级。</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <h3>最后处理边缘技能</h3>
+          <p>使用频率低、仅作过渡的技能，可以只满足前置要求，把剩余点数留给更实用的方向。</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-body">
+          <h3>根据玩法回头微调</h3>
+          <p>进入中后期后，如果发现练级效率或打王表现不理想，可以重新审视技能分配，而不是一开始就追求完美方案。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 搭配方案 + 侧栏 -->
+  <section class="wrap" id="build">
+    <div class="section-head">
+      <h2>两套常见技能搭配方向</h2>
+      <p>练级与打王对技能的需求并不相同，下面给出两种思路的侧重，供实际调整时参考。</p>
+    </div>
+
+    <div class="split">
+      <div>
+        <div class="grid grid-2" style="margin-bottom:18px;">
+          <article class="card">
+            <h3><span class="dot"></span>刷图练级向</h3>
+            <p>核心目标是单位时间内清掉更多怪物，因此优先考虑范围、冷却与移动效率。</p>
+            <ul>
+              <li>本职业范围攻击技能优先点满。</li>
+              <li>偷取技能优先选择大范围清怪类。</li>
+              <li>位移技能保证流畅的跑图节奏。</li>
+              <li>增益技能保持常驻，减少反复补状态。</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3><span class="dot"></span>BOSS 挑战向</h3>
+            <p>核心目标是在有限时间内打出更高伤害，并保证生存与走位空间。</p>
+            <ul>
+              <li>单体高倍率技能与爆发手段优先。</li>
+              <li>偷取技能可考虑团队增益或减伤类。</li>
+              <li>保留可靠的位移与规避手段。</li>
+              <li>超技能强化方向围绕主攻技能。</li>
+            </ul>
+          </article>
+        </div>
+
+        <article class="card">
+          <h3><span class="dot"></span>关于版本变化的提醒</h3>
+          <p>
+            冒险岛会通过版本更新调整技能数值、可偷取列表与矩阵节点，因此任何一份加点方案都存在时效性。
+            比较稳妥的做法是：先掌握“为什么这样点”的判断逻辑，再结合当前版本的技能说明做微调。
+            如果发现某个技能的实际手感与描述不符，优先相信自己在训练场中的实测结果。
+          </p>
+        </article>
+      </div>
+
+      <aside>
+        <div class="aside-box">
+          <h3>快速判断清单</h3>
+          <ol>
+            <li>这个技能我一场战斗会用几次？</li>
+            <li>它是否与其他技能功能重复？</li>
+            <li>不点满会不会影响后续技能解锁？</li>
+            <li>当前玩法更缺输出还是更缺生存？</li>
+          </ol>
+        </div>
+        <div class="aside-box">
+          <h3>新手容易踩的坑</h3>
+          <ul>
+            <li>看到新技能就立刻替换偷取槽，导致原有节奏被打乱。</li>
+            <li>把技能点平均分配，结果主力技能等级偏低。</li>
+            <li>忽略被动与前置技能，后期被迫回头补点。</li>
+            <li>照搬他人方案，却没有考虑自己的玩法偏好。</li>
+          </ul>
+        </div>
+        <div class="aside-box">
+          <h3>相关方向</h3>
+          <ul>
+            <li>盗贼系职业通用装备思路</li>
+            <li>五转矩阵核心选择逻辑</li>
+            <li>训练场伤害测试方法</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="wrap" id="faq">
+    <div class="section-head">
+      <h2>常见问题</h2>
+      <p>整理玩家在了解幻影技能时最常提出的几个疑问。</p>
+    </div>
+
+    <details class="faq-item" open>
+      <summary>幻影的偷取技能可以随时更换吗？</summary>
+      <div class="faq-body">
+        通常可以在技能界面重新选择偷取目标，但可同时装备的数量有限，替换会覆盖原有技能。
+        建议在更换前先想清楚当前主要玩法，避免频繁调整影响手感。
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>偷取技能和本职业技能哪个更重要？</summary>
+      <div class="faq-body">
+        本职业技能是输出的基础，偷取技能更多起补充作用。一般先保证本职业核心技能点满，
+        再根据缺口选择偷取方向，而不是本末倒置。
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>技能点加错了怎么办？</summary>
+      <div class="faq-body">
+        游戏内通常提供技能点重置的途径，具体方式与消耗以当前版本设定为准。
+        在重置成本较高时，建议先确认方案再投入，尤其是四转与超技能阶段。
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>幻影适合新手玩吗？</summary>
+      <div class="faq-body">
+        幻影的基础操作并不复杂，但技能取舍需要一定理解。如果愿意花时间了解偷取机制，
+        上手难度是可以接受的；如果偏好技能固定的职业，可能会觉得需要额外规划。
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>为什么网上的加点方案和我的不一样？</summary>
+      <div class="faq-body">
+        不同方案往往针对不同玩法：有的偏练级效率，有的偏 BOSS 输出，还有的考虑组队需求。
+        此外版本更新也会带来数值变化。选择方案时，先看它面向的场景是否与你一致。
+      </div>
+    </details>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h4>幻影技能资料站</h4>
+        <p>围绕冒险岛幻影职业的技能机制、加点顺序与搭配思路进行整理，内容以游戏内实际设定为准，随版本变化持续调整。</p>
+      </div>
+      <div>
+        <h4>内容导航</h4>
+        <ul>
+          <li><a href="#intro">职业概览</a></li>
+          <li><a href="#steal">偷取机制</a></li>
+          <li><a href="#skills">技能解析</a></li>
+          <li><a href="#order">加点顺序</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>参考方向</h4>
+        <ul>
+          <li><a href="#build">搭配方案</a></li>
+          <li><a href="#faq">常见问题</a></li>
+          <li>训练场实测</li>
+          <li>版本更新说明</li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">
+      本站为玩家向内容整理，与游戏官方无隶属关系。技能名称、数值与机制请以游戏内实际显示为准。
+    </div>
+  </div>
+</footer>
+
+<script>
+  // 平滑滚动兜底：对不支持 scroll-behavior 的浏览器做简单处理
+  document.querySelectorAll('a[href^="#"]').forEach(function(link){
+    link.addEventListener('click', function(e){
+      var id = this.getAttribute('href');
+      if(id.length > 1){
+        var target = document.querySelector(id);
+        if(target){
+          e.preventDefault();
+          target.scrollIntoView({behavior:'smooth', block:'start'});
+        }
+      }
+    });
+  });
+</script>
+
+</body>
+  </html>
