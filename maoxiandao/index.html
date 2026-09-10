@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冒险岛新叶城-地图玩法、任务路线与探索指南</title>
+<meta name="description" content="冒险岛新叶城专题页面，介绍新叶城的地图定位、进入方式、任务路线、怪物分布、装备与玩法要点，帮助玩家快速了解这一经典区域。">
+<meta name="keywords" content="冒险岛新叶城,新叶城地图,冒险岛任务,新叶城怪物,冒险岛攻略">
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+<style>
+  :root{
+    --leaf:#3f8f4a;
+    --leaf-dark:#276232;
+    --leaf-light:#e8f4ea;
+    --bark:#5a4632;
+    --sky:#dff0f7;
+    --ink:#22302a;
+    --muted:#5f6f66;
+    --line:#d8e4dc;
+    --card:#ffffff;
+    --bg:#f5faf6;
+    --radius:14px;
+    --shadow:0 6px 20px rgba(39,98,50,.08);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.75;
+    font-size:16px;
+  }
+  a{color:var(--leaf-dark);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  img{max-width:100%;}
+  .wrap{width:100%;max-width:1140px;margin:0 auto;padding:0 20px;}
+
+  /* 顶栏 */
+  .topbar{
+    background:linear-gradient(120deg,#2f6f3a 0%,#4f9c58 55%,#7cc47f 100%);
+    color:#fff;
+    position:relative;
+    overflow:hidden;
+  }
+  .topbar::after{
+    content:"";
+    position:absolute;
+    right:-60px;top:-60px;
+    width:260px;height:260px;
+    background:radial-gradient(circle,rgba(255,255,255,.28),transparent 70%);
+  }
+  .topbar-inner{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    justify-content:space-between;
+    gap:14px;
+    padding:16px 0;
+    position:relative;
+    z-index:2;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .brand-mark{
+    width:44px;height:44px;
+    border-radius:12px;
+    background:rgba(255,255,255,.18);
+    border:1px solid rgba(255,255,255,.45);
+    display:flex;align-items:center;justify-content:center;
+    font-size:22px;
+    font-weight:700;
+  }
+  .brand-text strong{display:block;font-size:19px;letter-spacing:.5px;}
+  .brand-text span{font-size:12.5px;opacity:.88;}
+  .topnav{display:flex;flex-wrap:wrap;gap:6px;}
+  .topnav a{
+    color:#fff;
+    font-size:14.5px;
+    padding:7px 13px;
+    border-radius:999px;
+    background:rgba(255,255,255,.12);
+    transition:background .2s ease;
+  }
+  .topnav a:hover{background:rgba(255,255,255,.28);text-decoration:none;}
+
+  /* 首屏 */
+  .hero{
+    background:linear-gradient(180deg,#eaf6ec 0%,#f5faf6 100%);
+    border-bottom:1px solid var(--line);
+  }
+  .hero-inner{
+    display:grid;
+    grid-template-columns:1.35fr 1fr;
+    gap:34px;
+    padding:46px 0 42px;
+    align-items:start;
+  }
+  .hero h1{
+    font-size:32px;
+    line-height:1.35;
+    margin:0 0 14px;
+    color:var(--leaf-dark);
+  }
+  .hero p.lead{
+    font-size:16.5px;
+    color:#3c4c43;
+    margin:0 0 20px;
+  }
+  .hero-tags{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:22px;}
+  .hero-tags span{
+    background:#fff;
+    border:1px solid var(--line);
+    color:var(--leaf-dark);
+    font-size:13.5px;
+    padding:5px 12px;
+    border-radius:999px;
+  }
+  .hero-actions{display:flex;flex-wrap:wrap;gap:12px;}
+  .btn{
+    display:inline-block;
+    padding:11px 22px;
+    border-radius:999px;
+    font-size:15px;
+    font-weight:600;
+    transition:transform .15s ease,box-shadow .15s ease;
+  }
+  .btn-primary{
+    background:var(--leaf);
+    color:#fff;
+    box-shadow:0 6px 16px rgba(63,143,74,.35);
+  }
+  .btn-primary:hover{transform:translateY(-2px);text-decoration:none;}
+  .btn-ghost{
+    background:#fff;
+    color:var(--leaf-dark);
+    border:1px solid var(--line);
+  }
+  .btn-ghost:hover{transform:translateY(-2px);text-decoration:none;}
+
+  .hero-side{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:22px 22px 18px;
+  }
+  .hero-side h2{
+    font-size:17px;
+    margin:0 0 12px;
+    color:var(--leaf-dark);
+  }
+  .fact-list{list-style:none;margin:0;padding:0;}
+  .fact-list li{
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
+    font-size:14.5px;
+    padding:9px 0;
+    border-bottom:1px dashed var(--line);
+  }
+  .fact-list li:last-child{border-bottom:none;}
+  .fact-list b{color:var(--muted);font-weight:500;flex:0 0 auto;}
+  .fact-list span{text-align:right;color:var(--ink);}
+
+  /* 通用区块 */
+  section{padding:44px 0;}
+  .sec-head{margin-bottom:24px;}
+  .sec-head h2{
+    font-size:23px;
+    margin:0 0 8px;
+    color:var(--leaf-dark);
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .sec-head h2::before{
+    content:"";
+    width:6px;height:22px;
+    border-radius:4px;
+    background:var(--leaf);
+    display:inline-block;
+  }
+  .sec-head p{margin:0;color:var(--muted);font-size:15px;}
+
+  /* 卡片网格 */
+  .grid{display:grid;gap:18px;}
+  .grid-3{grid-template-columns:repeat(3,1fr);}
+  .grid-2{grid-template-columns:repeat(2,1fr);}
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:20px;
+    box-shadow:var(--shadow);
+  }
+  .card h3{
+    font-size:16.5px;
+    margin:0 0 8px;
+    color:var(--leaf-dark);
+  }
+  .card p{margin:0;font-size:14.5px;color:#465248;}
+  .card ul{margin:10px 0 0;padding-left:18px;font-size:14.5px;color:#465248;}
+  .card ul li{margin-bottom:5px;}
+
+  /* 路线时间轴 */
+  .timeline{
+    list-style:none;
+    margin:0;
+    padding:0;
+    position:relative;
+  }
+  .timeline::before{
+    content:"";
+    position:absolute;
+    left:15px;top:6px;bottom:6px;
+    width:2px;
+    background:linear-gradient(180deg,var(--leaf),#cfe6d2);
+  }
+  .timeline li{
+    position:relative;
+    padding:0 0 22px 48px;
+  }
+  .timeline li:last-child{padding-bottom:0;}
+  .timeline li::before{
+    content:"";
+    position:absolute;
+    left:9px;top:6px;
+    width:14px;height:14px;
+    border-radius:50%;
+    background:#fff;
+    border:3px solid var(--leaf);
+  }
+  .timeline h3{
+    margin:0 0 4px;
+    font-size:16px;
+    color:var(--leaf-dark);
+  }
+  .timeline p{margin:0;font-size:14.5px;color:#465248;}
+
+  /* 表格 */
+  .table-wrap{
+    overflow-x:auto;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+  }
+  table{width:100%;border-collapse:collapse;min-width:560px;}
+  th,td{
+    text-align:left;
+    padding:13px 16px;
+    font-size:14.5px;
+    border-bottom:1px solid var(--line);
+  }
+  th{background:var(--leaf-light);color:var(--leaf-dark);font-weight:600;}
+  tbody tr:last-child td{border-bottom:none;}
+  tbody tr:hover{background:#f8fdf9;}
+
+  /* 提示条 */
+  .notice{
+    background:#fff8e8;
+    border:1px solid #f0dcae;
+    border-left:5px solid #e0b64a;
+    border-radius:10px;
+    padding:16px 20px;
+    font-size:14.5px;
+    color:#6a5320;
+  }
+  .notice strong{color:#8a6412;}
+
+  /* FAQ */
+  .faq-item{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:18px 20px;
+    margin-bottom:12px;
+    box-shadow:var(--shadow);
+  }
+  .faq-item h3{
+    margin:0 0 8px;
+    font-size:16px;
+    color:var(--leaf-dark);
+  }
+  .faq-item p{margin:0;font-size:14.5px;color:#465248;}
+
+  /* 侧栏布局 */
+  .split{
+    display:grid;
+    grid-template-columns:1.7fr 1fr;
+    gap:28px;
+    align-items:start;
+  }
+  .side-card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:20px;
+    margin-bottom:18px;
+  }
+  .side-card h3{
+    margin:0 0 12px;
+    font-size:16px;
+    color:var(--leaf-dark);
+  }
+  .side-card ul{margin:0;padding-left:18px;font-size:14.5px;color:#465248;}
+  .side-card ul li{margin-bottom:7px;}
+
+  /* 页脚 */
+  footer{
+    background:#20301f;
+    color:#c9d8c8;
+    padding:34px 0 26px;
+    margin-top:20px;
+  }
+  .foot-grid{
+    display:grid;
+    grid-template-columns:1.4fr 1fr 1fr;
+    gap:26px;
+  }
+  footer h3{
+    font-size:15px;
+    color:#fff;
+    margin:0 0 10px;
+  }
+  footer p,footer li{font-size:13.5px;line-height:1.85;}
+  footer ul{list-style:none;margin:0;padding:0;}
+  footer a{color:#bcd4bb;}
+  footer a:hover{color:#fff;}
+  .foot-bottom{
+    border-top:1px solid rgba(255,255,255,.12);
+    margin-top:24px;
+    padding-top:16px;
+    font-size:13px;
+    color:#9db39c;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    gap:10px;
+  }
+
+  @media (max-width:960px){
+    .hero-inner{grid-template-columns:1fr;}
+    .grid-3{grid-template-columns:repeat(2,1fr);}
+    .split{grid-template-columns:1fr;}
+    .foot-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:640px){
+    body{font-size:15.5px;}
+    .hero h1{font-size:25px;}
+    .hero-inner{padding:32px 0 30px;gap:24px;}
+    .grid-3,.grid-2{grid-template-columns:1fr;}
+    .topnav a{font-size:13.5px;padding:6px 11px;}
+    .foot-grid{grid-template-columns:1fr;}
+    section{padding:32px 0;}
+    .sec-head h2{font-size:20px;}
+    .timeline li{padding-left:40px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <div class="brand">
+      <div class="brand-mark">叶</div>
+      <div class="brand-text">
+        <strong>冒险岛新叶城</strong>
+        <span>地图导航 · 任务路线 · 探索指南</span>
+      </div>
+    </div>
+    <nav class="topnav" aria-label="站点导航">
+      <a href="#intro">区域概览</a>
+      <a href="#enter">进入方式</a>
+      <a href="#route">任务路线</a>
+      <a href="#monster">怪物分布</a>
+      <a href="#tips">玩法建议</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- 首屏 -->
+  <section class="hero" id="intro" style="padding:0;">
+    <div class="wrap hero-inner">
+      <div>
+        <h1>冒险岛新叶城：从进入方式到任务路线的完整探索参考</h1>
+        <p class="lead">
+          新叶城是《冒险岛》中一座以森林与机械元素交织为特色的城镇区域。很多玩家在推进主线、寻找特定任务或刷怪练级时会搜到这个名字，却不清楚它在整张世界地图中的位置、适合什么等级前往、以及进入后该先做什么。本页把区域定位、进入路径、任务顺序、怪物分布和常见疑问整理在一起，方便按需查阅。
+        </p>
+        <div class="hero-tags">
+          <span>森林城镇区域</span>
+          <span>任务与剧情节点</span>
+          <span>刷怪练级参考</span>
+          <span>装备与消耗品</span>
+        </div>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#route">查看任务路线</a>
+          <a class="btn btn-ghost" href="#enter">怎么进入新叶城</a>
+        </div>
+      </div>
+      <aside class="hero-side">
+        <h2>区域速览</h2>
+        <ul class="fact-list">
+          <li><b>区域类型</b><span>城镇 + 周边野外地图</span></li>
+          <li><b>主要用途</b><span>任务推进、刷怪、补给</span></li>
+          <li><b>推荐准备</b><span>回城卷、药水、任务道具栏</span></li>
+          <li><b>核心设施</b><span>商店、仓库、传送点</span></li>
+          <li><b>适合人群</b><span>做任务与探索的玩家</span></li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 区域概览 -->
+  <section id="overview">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>新叶城是什么地方</h2>
+        <p>先弄清楚它在游戏世界中的定位，再决定要不要专程前往。</p>
+      </div>
+      <div class="grid grid-3">
+        <article class="card">
+          <h3>森林风格的城镇</h3>
+          <p>新叶城整体以绿色植被与木质结构为主要视觉元素，城镇内分布着 NPC、商店和通往周边野外的出入口。它更像一个中转与补给点，而不是纯战斗地图。</p>
+        </article>
+        <article class="card">
+          <h3>任务链条的一环</h3>
+          <p>不少玩家是因为任务指引才第一次来到这里。城镇内的 NPC 会给出与区域剧情相关的任务，完成后往往能衔接到周边地图或后续章节。</p>
+        </article>
+        <article class="card">
+          <h3>刷怪与练级场所</h3>
+          <p>城镇外围分布着若干野外地图，怪物等级与密度因区域而异。选择与自身等级匹配的地图，效率会明显高于盲目乱跑。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 进入方式 -->
+  <section id="enter" style="background:#eef7f0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>怎么进入新叶城</h2>
+        <p>不同版本与不同剧情进度下，可用的进入路径会有所差别，以下为常见思路。</p>
+      </div>
+      <div class="split">
+        <div>
+          <ol class="timeline">
+            <li>
+              <h3>跟随任务指引前往</h3>
+              <p>最稳妥的方式是先查看当前任务列表。若主线或支线任务的目标地点指向新叶城，任务界面通常会提供方向提示或传送选项。</p>
+            </li>
+            <li>
+              <h3>通过世界地图查找</h3>
+              <p>打开世界地图，按区域名称或所属大陆逐层展开，找到对应城镇图标后即可查看相邻地图，规划步行路线。</p>
+            </li>
+            <li>
+              <h3>使用传送类道具</h3>
+              <p>部分传送卷、城镇传送或活动道具可以直接抵达目标城镇。使用前确认道具说明中的目的地名称，避免误传。</p>
+            </li>
+            <li>
+              <h3>从相邻地图步行进入</h3>
+              <p>若已解锁周边区域，可通过地图之间的连接口步行进入。进入前建议补满药水，野外路段可能有怪物干扰。</p>
+            </li>
+          </ol>
+        </div>
+        <aside>
+          <div class="side-card">
+            <h3>出发前检查清单</h3>
+            <ul>
+              <li>确认当前等级是否适合该区域</li>
+              <li>背包预留任务道具空间</li>
+              <li>携带足量恢复药水</li>
+              <li>记录回城方式，避免被困</li>
+              <li>查看是否有前置任务未完成</li>
+            </ul>
+          </div>
+          <div class="notice">
+            <strong>提示：</strong>不同服务器与版本的地图连接、NPC 位置可能存在差异。若按攻略找不到入口，优先以游戏内世界地图和任务提示为准。
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- 任务路线 -->
+  <section id="route">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>进城镇后先做什么：推荐任务顺序</h2>
+        <p>把零散任务按“先易后难、先近后远”的顺序串起来，能减少来回跑图。</p>
+      </div>
+      <div class="grid grid-2">
+        <article class="card">
+          <h3>第一步：逛城镇，认 NPC</h3>
+          <p>进入后先沿主路走一圈，记下商店、仓库、传送点和主要 NPC 的位置。很多任务需要多次回到同一 NPC 处交付，熟悉位置能省下大量时间。</p>
+        </article>
+        <article class="card">
+          <h3>第二步：接取城镇内任务</h3>
+          <p>与头顶带任务标记的 NPC 对话，把能在城镇内完成或只需简单对话的任务先清掉，这类任务通常耗时短、回报稳定。</p>
+        </article>
+        <article class="card">
+          <h3>第三步：处理周边野外任务</h3>
+          <p>需要打怪或采集的任务放到一起做。先按目标地图分组，再按距离由近到远依次推进，避免在同一片区域反复往返。</p>
+        </article>
+        <article class="card">
+          <h3>第四步：回头交付并检查后续</h3>
+          <p>完成一轮后集中交付，留意 NPC 是否给出后续任务或新的地图指引。若任务链较长，建议在离开前确认没有遗漏。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 怪物分布 -->
+  <section id="monster" style="background:#f0f6fb;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>周边怪物与地图选择</h2>
+        <p>怪物名称与等级会随版本调整，下表用于说明选择思路，具体数值请以游戏内显示为准。</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>地图类型</th>
+              <th>常见敌人特征</th>
+              <th>适合的玩法目的</th>
+              <th>注意事项</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>城镇近郊</td>
+              <td>等级较低、分布分散</td>
+              <td>熟悉操作、完成入门任务</td>
+              <td>掉落价值有限，不必久留</td>
+            </tr>
+            <tr>
+              <td>林地小径</td>
+              <td>数量中等、刷新较快</td>
+              <td>刷任务道具、轻度练级</td>
+              <td>注意地形狭窄处的走位</td>
+            </tr>
+            <tr>
+              <td>深处野区</td>
+              <td>等级偏高、攻击更强</td>
+              <td>挑战性战斗、经验收益</td>
+              <td>务必带足药水并确认退路</td>
+            </tr>
+            <tr>
+              <td>特殊副本入口</td>
+              <td>需满足条件才能进入</td>
+              <td>剧情推进、稀有奖励</td>
+              <td>提前查看进入条件与组队要求</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:14px;font-size:14px;color:var(--muted);">
+        选择地图时，优先考虑“能否稳定击杀”而不是“经验数字是否最高”。清怪速度跟不上时，实际收益往往低于低一档但更顺手的区域。
+      </p>
+    </div>
+  </section>
+
+  <!-- 玩法建议 -->
+  <section id="tips">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>探索新叶城的实用建议</h2>
+        <p>这些细节不复杂，但能明显影响体验和效率。</p>
+      </div>
+      <div class="grid grid-3">
+        <article class="card">
+          <h3>背包提前整理</h3>
+          <p>任务道具、装备和消耗品混在一起时，很容易在关键节点发现空间不足。出发前清理无用物品，留出余量。</p>
+        </article>
+        <article class="card">
+          <h3>任务与刷怪同步进行</h3>
+          <p>把“需要击杀某怪物”的任务集中到一次外出中完成，减少重复跑图，是提升任务效率最直接的办法。</p>
+        </article>
+        <article class="card">
+          <h3>留意对话内容</h3>
+          <p>部分任务的关键信息藏在 NPC 对话里，跳过文本可能导致找不到目标地点。遇到卡关时，回头重读对话往往有收获。</p>
+        </article>
+        <article class="card">
+          <h3>合理使用传送</h3>
+          <p>传送能节省时间，但部分任务要求“亲自抵达”才算完成。使用前确认任务条件，避免白跑一趟。</p>
+        </article>
+        <article class="card">
+          <h3>组队看需求</h3>
+          <p>普通任务通常单人即可完成，副本或高难度区域则更适合组队。组队前沟通好目标，效率更高。</p>
+        </article>
+        <article class="card">
+          <h3>记录常用坐标</h3>
+          <p>把常去的 NPC、商店和地图入口位置记下来，长期来看能省下不少找路时间。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" style="background:#eef7f0;border-top:1px solid var(--line);">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>关于新叶城的常见问题</h2>
+        <p>整理玩家搜索频率较高的几个疑问。</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>新叶城适合多少级前往？</h3>
+        <p>具体等级门槛会随版本与任务线变化。稳妥的做法是查看任务提示中的推荐等级，或先在世界地图上确认周边怪物的等级区间，再决定是否前往。</p>
+      </div>
+      <div class="faq-item">
+        <h3>找不到进入新叶城的路怎么办？</h3>
+        <p>优先使用游戏内世界地图逐层查找，同时检查任务列表是否有指向该区域的目标。若仍未找到，可能是前置任务未完成或版本差异导致路径不同。</p>
+      </div>
+      <div class="faq-item">
+        <h3>新叶城有值得长期停留的内容吗？</h3>
+        <p>它更多承担任务节点和补给中转的作用。是否值得停留，取决于你当前的任务进度和练级需求，而非区域本身的固定价值。</p>
+      </div>
+      <div class="faq-item">
+        <h3>任务做一半离开了，回来还能继续吗？</h3>
+        <p>已接取的任务通常会保留在任务列表中，重新进入区域后按提示继续即可。若任务要求特定时间或状态，建议先确认条件是否仍然满足。</p>
+      </div>
+      <div class="faq-item">
+        <h3>这里的怪物掉落重要吗？</h3>
+        <p>掉落内容因版本而异。若任务需要特定道具，以任务说明为准；若为日常刷怪，建议优先关注清怪效率而非单件掉落。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 结语 -->
+  <section id="summary">
+    <div class="wrap">
+      <div class="notice" style="background:#eaf6ec;border-color:#c6e2ca;border-left-color:var(--leaf);color:#2f4a35;">
+        <strong>小结：</strong>把新叶城理解为一个“任务与补给中转站”会更贴近实际体验。先确认进入路径，再按城镇任务、周边任务、集中交付的顺序推进，最后根据等级选择合适的地图刷怪，基本就能顺畅走完这一区域。遇到与攻略不符的情况，以游戏内的地图、任务提示和 NPC 对话为准。
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h3>冒险岛新叶城</h3>
+        <p>本页为玩家整理的区域参考内容，涵盖进入方式、任务顺序、怪物分布与常见问题，帮助快速了解新叶城在游戏中的定位与玩法思路。</p>
+      </div>
+      <div>
+        <h3>页面导航</h3>
+        <ul>
+          <li><a href="#intro">区域概览</a></li>
+          <li><a href="#enter">进入方式</a></li>
+          <li><a href="#route">任务路线</a></li>
+          <li><a href="#monster">怪物分布</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>相关参考</h3>
+        <ul>
+          <li><a href="#tips">玩法建议</a></li>
+          <li><a href="#faq">常见问题</a></li>
+          <li><a href="#summary">内容小结</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>内容以游戏内实际显示为准，版本差异可能导致细节不同。</span>
+      <span>冒险岛新叶城 · 探索参考页</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var links = document.querySelectorAll('a[href^="#"]');
+    for (var i = 0; i < links.length; i++) {
+      links[i].addEventListener('click', function(e){
+        var id = this.getAttribute('href');
+        if (id.length > 1) {
+          var target = document.querySelector(id);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({behavior:'smooth', block:'start'});
+          }
+        }
+      });
+    }
+  })();
+</script>
+
+</body>
+  </html>
